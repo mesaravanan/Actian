@@ -1,17 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { NgxSpinnerService } from "ngx-spinner";
-import { ApiService } from '../../service/api.service'
+import { NgxSpinnerService } from 'ngx-spinner';
+import { ApiService } from '../../service/api.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
-  locationFound: boolean = false;
-  citySearched: boolean = false;
-  isError: boolean = false;
+export class HomeComponent {
+  locationFound = false;
+  citySearched = false;
+  isError = false;
   geoCodeResponse: any;
   cityForm = new FormGroup({
     cityName: new FormControl('', Validators.required),
@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
   searchCity() {
     this.isError = false;
     this.spinner.show();
-    let city = this.cityForm.value.cityName;
+    const city = this.cityForm.value.cityName;
     this.apiService.getCityLocation(city).subscribe((response: any) => {
       this.spinner.hide();
       this.citySearched = true;
