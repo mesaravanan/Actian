@@ -1,0 +1,14 @@
+.error{
+  color: #FF0000;
+}
+.city-container {
+  display: flex;
+  flex-direction: column;
+  background-color: blanchedalmond;
+  margin: 2em auto auto;
+}
+
+.tableCenter{
+  width: 50%;
+  margin: 0 auto !important;
+}
