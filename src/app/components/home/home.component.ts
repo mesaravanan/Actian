@@ -19,9 +19,6 @@ export class HomeComponent implements OnInit {
 
   constructor(private apiService: ApiService, private spinner: NgxSpinnerService) { }
 
-  ngOnInit() {
-  }
-
   resetCity() {
     this.locationFound = false;
     this.citySearched = false;
