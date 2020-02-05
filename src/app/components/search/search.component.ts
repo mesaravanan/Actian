@@ -8,21 +8,18 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class SearchComponent {
   cityName = '';
-  locationFound = false;
   citySearched = false;
-  isError = false;
-  //geoCodeResponse: any;
   cityForm = new FormGroup({
     cityName: new FormControl('', Validators.required),
   });
 
   resetCity() {
-    this.locationFound = false;
     this.citySearched = false;
-    this.isError = false;
+
   }
 
   searchCity() {
+    this.citySearched = true;
     this.cityName = this.cityForm.value.cityName;
   }
 

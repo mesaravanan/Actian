@@ -11,8 +11,5 @@
       </form>
     </div>
   </div>
-  <div>
-    {{cityName}}
-  <app-result [cityName]="cityName"></app-result>
-  </div>
+    <app-result *ngIf="citySearched" [cityName]="cityName"></app-result>
 </div>

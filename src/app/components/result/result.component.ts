@@ -18,7 +18,6 @@ export class ResultComponent implements OnInit {
   constructor(private apiService: ApiService, private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
-    let city = this.cityName;
     if(this.cityName !== ''){
       this.isError = false;
       this.spinner.show();
