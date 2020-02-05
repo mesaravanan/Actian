@@ -4,13 +4,15 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
-import { HomeComponent } from './components/home/home.component';
+//import { HomeComponent } from './components/home/home.component';
+import { SearchComponent } from './components/search/search.component';
+import { ResultComponent } from './components/result/result.component';
 import { ErrorComponent } from './components/error/error.component';
 
 const routes: Routes = [
   {
     path: 'home',
-    component: HomeComponent,
+    component: SearchComponent,
   },
   {
     path: '',
@@ -25,7 +27,8 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    HomeComponent,
+    SearchComponent,
+    ResultComponent,
     ErrorComponent
   ],
   imports: [

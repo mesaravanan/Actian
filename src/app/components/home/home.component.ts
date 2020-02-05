@@ -27,21 +27,8 @@ export class HomeComponent {
 
   searchCity() {
     this.isError = false;
-    this.spinner.show();
+    //this.spinner.show();
     const city = this.cityForm.value.cityName;
-    this.apiService.getCityLocation(city).subscribe((response: any) => {
-      this.spinner.hide();
-      this.citySearched = true;
-      if (response.results.length > 0) {
-        this.locationFound = true;
-        this.geoCodeResponse = response.results[0];
-      } else {
-        this.locationFound = false;
-      }
-    }, (error) => {
-      this.spinner.hide();
-      this.citySearched = true;
-      this.isError = true;
-    });
+    
   }
 }
