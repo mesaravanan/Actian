@@ -1,0 +1,33 @@
+<div *ngIf="locationFound" class="row mt-4">
+  <div class="col-md-12 table-responsive">
+    <table class="table table-centered table-bordered">
+      <thead>
+      <tr>
+        <th>City</th>
+        <th>Latitude</th>
+        <th>Logtitude</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>{{cityForm.value.cityName| titlecase }}</td>
+        <td>{{geoCodeResponse.geometry.location.lat}}</td>
+        <td>{{geoCodeResponse.geometry.location.lng}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div *ngIf="!locationFound && isError" class="row mt-4">
+  <div class="col-md-12 text-center alert alert-danger alert-dismissible">
+    <h6>Error Occured while getting location details</h6>
+  </div>
+</div>
+
+<div *ngIf="!isError && !locationFound && citySearched" class="row mt-2">
+  <div class="col-md-12 text-center alert alert-danger alert-dismissible">
+    <h6>City detail not found</h6>
+  </div>
+</div>
+
