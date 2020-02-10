@@ -2,16 +2,16 @@
   <div class="col-md-12 table-responsive">
     <table class="table table-centered table-bordered">
       <thead>
-      <tr>
-        <th>Latitude</th>
-        <th>Logtitude</th>
-      </tr>
+        <tr>
+          <th>Latitude</th>
+          <th>Logtitude</th>
+        </tr>
       </thead>
       <tbody>
-      <tr>
-        <td>{{geoCodeResponse.geometry.location.lat}}</td>
-        <td>{{geoCodeResponse.geometry.location.lng}}</td>
-      </tr>
+        <tr>
+          <td>{{ geoCodeResponse.geometry.location.lat }}</td>
+          <td>{{ geoCodeResponse.geometry.location.lng }}</td>
+        </tr>
       </tbody>
     </table>
   </div>
@@ -28,4 +28,3 @@
     <h6>City detail not found</h6>
   </div>
 </div>
-
