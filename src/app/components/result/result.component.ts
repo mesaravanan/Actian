@@ -7,7 +7,7 @@ import { ApiService } from "../../service/api.service";
   templateUrl: "./result.component.html"
 })
 export class ResultComponent implements OnInit {
-  @Input() cityName;
+  @Input() cityName: string;
   locationFound = false;
   citySearched = false;
   isError = false;
