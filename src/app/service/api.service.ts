@@ -1,17 +1,24 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { environment } from '../../environments/environment';
-import { Cacheable } from 'ngx-cacheable';
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { environment } from "../../environments/environment";
+import { Observable, of } from "rxjs";
+import { tap } from "rxjs/operators";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class ApiService {
+  public locResponseCache = new Map();
   constructor(private http: HttpClient) {}
-  @Cacheable()
-  getCityLocation(city: string) {
+
+  getCityLocation(city: string): Observable<any> {
     const url = environment.apis.geoCode + city;
-    const response = this.http.get<any>(url);
-    return response;
+    const locationFromCache = this.locResponseCache.get(url);
+    if (locationFromCache) {
+      return of(locationFromCache);
+    }
+    return this.http
+      .get<any>(url)
+      .pipe(tap(response => this.locResponseCache.set(url, response)));
   }
 }
